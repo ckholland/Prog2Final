@@ -106,7 +106,7 @@ married = st.number_input("Married:", min_value=0, max_value=1, step=1)
 female = st.number_input("Female:", min_value=0, max_value=1, step=1)
 age = st.number_input("Age:", min_value=0, max_value=98, step=1)
 
-person = [education, income, parent, married, female, age]
+person = [education, income_options[income], parent, married, female, age]
 
 probability = lr.predict_proba([person])
 prediction = np.where(lr.predict([person]) == 1, "LinkedIn User", "Not a LinkedIn User")
