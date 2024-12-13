@@ -47,7 +47,35 @@ lr.fit(X_train, y_train)
 st.markdown("# Predicting LinkedIn Users")
 st.markdown("#### Based on their Demographic Data")
 
-education = st.number_input("Education Level:", min_value=1, max_value=8, step=1)
+education = st.selectbox("Which of the following best describes your eduction level?",
+			options = ["Never went to high school", 
+              "Never graduated high school", 
+              "Graduated high school or GED",
+              "Attended some college",
+              "Two-year associate degree",
+              "Four-year bachelor's degree",
+              "Some post-graduate or professional schooling",
+              "Postgraduate or professional degree including master's"]
+
+if education == "Never went to high school":
+    education = 1
+elif education == "Never graduated high school":
+    education = 2
+elif education == "Graduated high school or GED":
+    education = 3
+elif education == "Attended some college":
+    education = 4
+elif education == "Two-year associate degree":
+    education = 5
+elif education == "Four-year bachelor's degree":
+    education = 6
+elif education == "Some post-graduate or professional schooling":
+    education = 7
+elif education == "Postgraduate or professional degree including master's":
+    education = 8
+
+
+income = st.selectbox("What is your approximate hou")
 income = st.number_input("Income:", min_value=1, max_value=9, step=1)
 parent = st.number_input("Parent:", min_value=0, max_value=120, step=1)
 married = st.number_input("Married:", min_value=0, max_value=1, step=1)
