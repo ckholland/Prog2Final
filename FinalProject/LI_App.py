@@ -111,8 +111,18 @@ person = [education, income_options[income], parent, married, female_options[fem
 probability = lr.predict_proba([person])
 prediction = np.where(lr.predict([person]) == 1, "LinkedIn User", "Not a LinkedIn User")
 
-st.write(round(probability[0][1],2)*100,"%")
-st.write(prediction[0])
+color = "green" if probability[0][1] >= 0.5 else "red"
+# Create an H1 heading with dynamic color
+st.markdown(
+    f"<h1 style='color: {color};'>{round(probability[0][1] * 100, 2)}%</h1>")
+
+st.markdown(
+    f"<h1 style='color: {color};'>{prediction[0]}%</h1>")
+
+if prediction == "LinkedInUser":
+    st.image("./LILogo.png",use_column_width=True)
+
+
 
 
 ## Tomorrow I need to make it look pretty, mix up the input types and submit. I think it should be colored based on the success in the output, also should make one of those guages to show probability. That should be enough.
