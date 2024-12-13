@@ -56,7 +56,6 @@ education = st.selectbox("Which of the following best describes their eduction l
               "Four-year bachelor's degree",
               "Some post-graduate or professional schooling",
               "Postgraduate or professional degree including master's"])
-
 if education == "Never went to high school":
     education = 1
 elif education == "Never graduated high school":
@@ -85,34 +84,29 @@ income_options = {
     "$100,000 to under $150,000": 8,
     "$150,000 or more": 9,
     }
-
 income = st.selectbox("What is their annual household income?",
 			income_options.keys())
 
-income_options = {
-    "Less than $10,000": 1,
-    "$10,000 to under $20,000": 2,
-    "$20,000 to under $30,000": 3,
-    "$30,000 to under $40,000": 4,
-    "$40,000 to under $50,000": 5,
-    "$50,000 to under $75,000": 6,
-    "$75,000 to under $100,000": 7,
-    "$100,000 to under $150,000": 8,
-    "$150,000 or more": 9,
-    }
 
 parent = 0
 if st.checkbox("Are they a parent?"):
     parent = 1
 
-st.write(parent)
-parent = st.number_input("Parent:", min_value=0, max_value=120, step=1)
+married = 0
+if st.checkbox("Are they married?"):
+    married = 1
 
-married = st.number_input("Married:", min_value=0, max_value=1, step=1)
-female = st.number_input("Female:", min_value=0, max_value=1, step=1)
-age = st.number_input("Age:", min_value=0, max_value=98, step=1)
+female_options = {
+    "Male": 0,
+    "Female": 1,
+    }
 
-person = [education, income_options[income], parent, married, female, age]
+female = st.selectbox("What is their sex?",
+			female_options.keys())
+
+age = st.number_input("How old are they?", min_value=0, max_value=98, step=1)
+
+person = [education, income_options[income], parent, married, female_options[female], age]
 
 probability = lr.predict_proba([person])
 prediction = np.where(lr.predict([person]) == 1, "LinkedIn User", "Not a LinkedIn User")
