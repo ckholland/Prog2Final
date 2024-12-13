@@ -60,7 +60,7 @@ probability = lr.predict_proba([person])
 prediction = np.where(lr.predict([person]) == 1, "LinkedIn User", "Not a LinkedIn User")
 
 st.write(probability[0][1])
-st.write(prediction[0][0])
+st.write(prediction[0])
 
 
-## Tomorrow I need to make it look pretty, mix up the input types and submit. I think it should be colored based on the success in the output
+## Tomorrow I need to make it look pretty, mix up the input types and submit. I think it should be colored based on the success in the output, also should make one of those guages to show probability. That should be enough.
