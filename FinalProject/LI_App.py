@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
 
 
-s = pd.read_csv("social_media_usage.csv")
+s = pd.read_csv("../social_media_usage.csv")
 
 def clean_sm (x):
     x = np.where(x == 1, 1, 0)
