@@ -86,7 +86,7 @@ income_options = {
     "$150,000 or more": 9,
     }
 
-education = st.selectbox("What is your annual household income?",
+income = st.selectbox("What is your annual household income?",
 			income_options.keys())
 
 income_options = {
