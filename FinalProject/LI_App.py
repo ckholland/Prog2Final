@@ -55,7 +55,7 @@ education = st.selectbox("Which of the following best describes your eduction le
               "Two-year associate degree",
               "Four-year bachelor's degree",
               "Some post-graduate or professional schooling",
-              "Postgraduate or professional degree including master's"]
+              "Postgraduate or professional degree including master's"])
 
 if education == "Never went to high school":
     education = 1
@@ -75,7 +75,6 @@ elif education == "Postgraduate or professional degree including master's":
     education = 8
 
 
-income = st.selectbox("What is your approximate hou")
 income = st.number_input("Income:", min_value=1, max_value=9, step=1)
 parent = st.number_input("Parent:", min_value=0, max_value=120, step=1)
 married = st.number_input("Married:", min_value=0, max_value=1, step=1)
