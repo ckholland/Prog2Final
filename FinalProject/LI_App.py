@@ -47,5 +47,5 @@ y_pred = lr.predict(X_test)
 confusion_matrix(y_test,y_pred)
 
 
-st.markdown(# Predicting LinkedIn Users)
-st.markdown(## Based on their Demographic Data)
+st.markdown("# Predicting LinkedIn Users")
+st.markdown("## Based on their Demographic Data")
