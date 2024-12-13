@@ -103,7 +103,7 @@ income_options = {
 
 if st.checkbox("Are they a parent?"):
 	parent = 1
-
+st.write(parent)
 parent = st.number_input("Parent:", min_value=0, max_value=120, step=1)
 
 married = st.number_input("Married:", min_value=0, max_value=1, step=1)
