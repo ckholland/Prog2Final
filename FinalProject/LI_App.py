@@ -120,7 +120,7 @@ st.markdown(
     f"<h1 style='color: {color};'>{prediction[0]}%</h1>", unsafe_allow_html=True)
 
 if prediction == "LinkedIn User":
-    st.image("./LILogo.png",use_column_width=True)
+    st.image("./LILogo.png", width = 100)
 
 
 
