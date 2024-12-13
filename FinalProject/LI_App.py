@@ -114,12 +114,12 @@ prediction = np.where(lr.predict([person]) == 1, "LinkedIn User", "Not a LinkedI
 color = "green" if probability[0][1] >= 0.5 else "red"
 # Create an H1 heading with dynamic color
 st.markdown(
-    f"<h1 style='color: {color};'>{round(probability[0][1] * 100, 2)}%</h1>")
+    f"<h1 style='color: {color};'>{round(probability[0][1] * 100, 2)}%</h1>", unsafe_allow_html=True)
 
 st.markdown(
-    f"<h1 style='color: {color};'>{prediction[0]}%</h1>")
+    f"<h1 style='color: {color};'>{prediction[0]}%</h1>", unsafe_allow_html=True)
 
-if prediction == "LinkedInUser":
+if prediction == "LinkedIn User":
     st.image("./LILogo.png",use_column_width=True)
 
 
