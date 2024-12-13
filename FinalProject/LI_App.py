@@ -101,8 +101,10 @@ income_options = {
     "$150,000 or more": 9,
     }
 
+parent = 0
 if st.checkbox("Are they a parent?"):
-	parent = 1
+    parent = 1
+
 st.write(parent)
 parent = st.number_input("Parent:", min_value=0, max_value=120, step=1)
 
