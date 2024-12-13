@@ -74,8 +74,21 @@ elif education == "Some post-graduate or professional schooling":
 elif education == "Postgraduate or professional degree including master's":
     education = 8
 
+education = st.selectbox("What is your annual household income?",
+			income_options.keys())
 
-income = st.number_input("Income:", min_value=1, max_value=9, step=1)
+income_options = {
+    "Less than $10,000": 1,
+    "$10,000 to under $20,000": 2,
+    "$20,000 to under $30,000": 3,
+    "$30,000 to under $40,000": 4,
+    "$40,000 to under $50,000": 5,
+    "$50,000 to under $75,000": 6,
+    "$75,000 to under $100,000": 7,
+    "$100,000 to under $150,000": 8,
+    "$150,000 or more": 9,
+    }
+
 parent = st.number_input("Parent:", min_value=0, max_value=120, step=1)
 married = st.number_input("Married:", min_value=0, max_value=1, step=1)
 female = st.number_input("Female:", min_value=0, max_value=1, step=1)
