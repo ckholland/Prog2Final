@@ -59,7 +59,7 @@ person = [education, income, parent, married, female, age]
 probability = lr.predict_proba([person])
 prediction = np.where(lr.predict([person]) == 1, "LinkedIn User", "Not a LinkedIn User")
 
-st.write(probability[0][1])
+st.write(round(probability[0][1],2)*100,"%")
 st.write(prediction[0])
 
 
