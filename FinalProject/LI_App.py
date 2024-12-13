@@ -47,7 +47,7 @@ lr.fit(X_train, y_train)
 st.markdown("# Predicting LinkedIn Users")
 st.markdown("#### Based on their Demographic Data")
 
-education = st.selectbox("Which of the following best describes your eduction level?",
+education = st.selectbox("Which of the following best describes their eduction level?",
 			options = ["Never went to high school", 
               "Never graduated high school", 
               "Graduated high school or GED",
@@ -86,7 +86,7 @@ income_options = {
     "$150,000 or more": 9,
     }
 
-income = st.selectbox("What is your annual household income?",
+income = st.selectbox("What is their annual household income?",
 			income_options.keys())
 
 income_options = {
@@ -101,7 +101,11 @@ income_options = {
     "$150,000 or more": 9,
     }
 
+if st.checkbox("Are they a parent?"):
+	parent = 1
+
 parent = st.number_input("Parent:", min_value=0, max_value=120, step=1)
+
 married = st.number_input("Married:", min_value=0, max_value=1, step=1)
 female = st.number_input("Female:", min_value=0, max_value=1, step=1)
 age = st.number_input("Age:", min_value=0, max_value=98, step=1)
