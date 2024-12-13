@@ -48,7 +48,7 @@ st.markdown("# Predicting LinkedIn Users")
 st.markdown("#### Based on their Demographic Data")
 
 education = st.number_input("Education Level:", min_value=1, max_value=8, step=1)
-income = st.number_input("Enter your age:", min_value=1, max_value=9, step=1)
+income = st.number_input("Income:", min_value=1, max_value=9, step=1)
 parent = st.number_input("Parent:", min_value=0, max_value=120, step=1)
 married = st.number_input("Married:", min_value=0, max_value=1, step=1)
 female = st.number_input("Female:", min_value=0, max_value=1, step=1)
@@ -59,5 +59,8 @@ person = [education, income, parent, married, female, age]
 probability = lr.predict_proba([person])
 prediction = np.where(lr.predict([person]) == 1, "LinkedIn User", "Not a LinkedIn User")
 
-st.write(probability)
-st.write(prediction)
+st.write(probability[0][1])
+st.write(prediction[0][0])
+
+
+## Tomorrow I need to make it look pretty, mix up the input types and submit. I think it should be colored based on the success in the output
