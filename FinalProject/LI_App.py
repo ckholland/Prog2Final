@@ -43,9 +43,21 @@ X_train, X_test, y_train, y_test = train_test_split(X.values,
 lr = LogisticRegression(class_weight='balanced')
 lr.fit(X_train, y_train)
 
-y_pred = lr.predict(X_test)
-confusion_matrix(y_test,y_pred)
-
 
 st.markdown("# Predicting LinkedIn Users")
-st.markdown("## Based on their Demographic Data")
+st.markdown("#### Based on their Demographic Data")
+
+education = st.number_input("Education Level:", min_value=1, max_value=8, step=1)
+income = st.number_input("Enter your age:", min_value=1, max_value=9, step=1)
+parent = st.number_input("Parent:", min_value=0, max_value=120, step=1)
+married = st.number_input("Married:", min_value=0, max_value=1, step=1)
+female = st.number_input("Female:", min_value=0, max_value=1, step=1)
+age = st.number_input("Age:", min_value=0, max_value=98, step=1)
+
+person = [education, income, parent, married, female, age]
+
+probability = lr.predict_proba([person])
+prediction = np.where(lr.predict([person]) == 1, "LinkedIn User", "Not a LinkedIn User")
+
+st.write(probability)
+st.write(prediction)
